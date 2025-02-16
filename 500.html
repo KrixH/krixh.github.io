@@ -1,33 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>500 Internal Server Error | @krixh99</title>
-    <meta name="description" content="Welcome to krixh.github.io!">
-    <meta name="author" content="krixh.github.io">
-    <meta property="og:title" content="500 Internal Server Error | Home" />
-    <meta property="og:url" content="https://www.krixh.github.io/" />
-    <meta property="og:description" content="Welcome to krixh.github.io!">
-    <meta property="og:image" content="https://www.krixh.github.io/preview.png" />
-    <meta name="theme-color" content="#000000">
-    <meta name="msapplication-navbutton-color" content="#000000">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="icon" href="https://cdn.icon-icons.com/icons2/1451/PNG/512/codefolder_99364.png" type="image/x-icon">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/matrix.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500 - Szerverhiba | KrixH99</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div style="margin: 5em; text-align: justify; overflow-y: visible;">
-        <h1>500 Internal Server Error</h1>
-        <p>Sorry! Something went wrong on our end.</p>
-        <p>Please try again later, or go back to the homepage.</p>
-        <a href="/">Go to Homepage</a>
+    <div class="error-container">
+        <div class="header">
+            <div class="error-code">500</div>
+            <h1>Váratlan szerverhiba</h1>
+        </div>
+        
+        <p>Problémát észleltünk a kérés feldolgozása közben.</p>
+        <button class="back-btn" onclick="window.location.href='/'">Vissza a főoldalra</button>
+        
+        <div class="social-container">
+            <!-- Social gombok -->
+        </div>
     </div>
+    
+    <script src="js/scripts.js"></script>
+    <footer>
+        <p>&copy; 2024-<span id="year"></span> All rights reserved. TheHUB | @krixh99</p>    
+    </footer>
 </body>
-<footer>
-    <a href="index.html" target="_parent">HQ – Home</a>
-    <p>© Krixh99 <script type="text/javascript">document.write(new Date().getFullYear());</script> - All rights reserved.</p>
-</footer>
 </html>
