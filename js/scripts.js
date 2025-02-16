@@ -32,5 +32,8 @@ if (!document.cookie.includes('cookie_consent=true')) {
 
 function acceptCookies() {
     document.cookie = "cookie_consent=true; max-age=2592000; path=/";
-    document.querySelector('div').remove();
+    const cookieBanner = document.querySelector('div[style*="fixed"]');
+    if (cookieBanner) {
+        cookieBanner.remove();
+    }
 }
