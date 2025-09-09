@@ -1,46 +1,33 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - KrixH99</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <title>404 | Az oldal nem található</title>
+  <meta name="robots" content="noindex">
+    <meta name="author" content="KrixH99">
+    <meta property="og:title" content="theHUB | @krixh99" />
+    <meta property="og:url" content="https://krixh.github.io/" />
+    <meta property="og:description" content="Welcome to THE HUB!">
+    <meta name="theme-color" content="#000000">
+    <meta name="msapplication-navbutton-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="css/error.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="error-container">
-        <div class="header">
-            <div class="error-code">404</div>
-            <h1>Úgy tűnik eltévedtél</h1>
-            <button class="back-btn" onclick="window.location.href='/'">Vissza a főoldalra</button>
-        </div>
-        
-        <div class="social-container">
-            <!-- Social gombok -->
-            <a href="https://x.com/_KrixH_" class="social-btn twitter" data-tooltip="Twitter">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://www.instagram.com/kriszh99/" class="social-btn instagram" data-tooltip="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://github.com/KrixH" class="social-btn github" data-tooltip="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.youtube.com/@KrixH99" class="social-btn youtube" data-tooltip="YouTube">
-                <i class="fab fa-youtube"></i>
-            </a>
-            <a href="https://krixh.github.io/gamelist/" class="social-btn html5" data-tooltip="GameHUB">
-                <i class="fa-brands fa-html5"></i>
-            </a>
-            <a href="https://krixh.github.io/datapacks/" class="social-btn html5" data-tooltip="DatapackHUB">
-                <i class="fa-brands fa-html5"></i>
-            </a>
-        </div>
+  <main class="error-main">
+    <div class="error-icon"><i class="fas fa-exclamation-triangle"></i></div>
+    <div class="error-code">404</div>
+    <div class="error-title">Az oldal nem található</div>
+    <div class="error-desc">
+      A keresett oldal nem létezik, vagy már eltávolították.<br>
+      Kérlek, ellenőrizd a címet vagy térj vissza a főoldalra!
     </div>
-    
-    <script src="js/scripts.js"></script>
-    <footer>
-        <p>&copy; 2024-<span id="year"></span> All rights reserved. TheHUB | @krixh99</p>    
-    </footer>
+    <div class="error-actions">
+      <a href="https://krixh.github.io/" class="error-link"><i class="fas fa-home"></i> Főoldal</a>
+    </div>
+    <span class="version-badge">theHUB v1.0.0</span>
+  </main>
 </body>
 </html>
