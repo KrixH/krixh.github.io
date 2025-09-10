@@ -137,6 +137,7 @@ body::before{
 .github { color: #ffffff; }
 .youtube { color: #ff0000; }
 .twitch { color: #6441A4; }
+.kick { color: #61CB2B; }
 .project { color: var(--accent); }
 
 /* PROJECTS (initially hidden) */
