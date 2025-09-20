@@ -38,9 +38,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* <-- vertical center */
-  padding: 2.5rem 1rem;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 3rem) clamp(0.5rem, 3vw, 2rem);
   text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Animated soft background gradient motion (subtle) */
@@ -73,19 +76,20 @@ body::before{
 /* social icons row */
 .social-container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 18px;
-  margin: 22px 0 18px;
+  gap: clamp(10px, 3vw, 24px);
+  margin: clamp(12px, 3vw, 22px) 0 clamp(8px, 2vw, 18px);
 }
 .social-btn {
-  width: 80px;
-  height: 80px;
+  width: clamp(44px, 8vw, 80px);
+  height: clamp(44px, 8vw, 80px);
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
+  font-size: clamp(18px, 3vw, 28px);
   background: rgba(255,255,255,0.04);
   box-shadow: 0 2px 16px rgba(0,0,0,0.18);
   color: white;
@@ -138,6 +142,7 @@ body::before{
 .youtube { color: #ff0000; }
 .twitch { color: #6441A4; }
 .kick { color: #61CB2B; }
+.steam { color: #171a21; }
 .project { color: var(--accent); }
 
 /* PROJECTS (initially hidden) */
@@ -165,14 +170,14 @@ body::before{
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(10px, 2vw, 18px);
 }
 
 .project-card {
   background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
   border-radius: 14px;
-  padding: 22px;
+  padding: clamp(10px, 3vw, 22px);
   box-shadow: 0 6px 18px rgba(0,0,0,0.5);
   text-align: left;
   color: #e9f0f6;
@@ -197,8 +202,8 @@ body::before{
 .version-badge {
   display: inline-block;
   margin-left: 14px;
-  padding: 2px 10px;
-  font-size: 0.93em;
+  padding: clamp(2px, 0.5vw, 10px) clamp(6px, 2vw, 14px);
+  font-size: clamp(0.8em, 2vw, 1em);
   font-weight: 600;
   color: var(--accent);
   background: rgba(255,255,255,0.08);
@@ -217,12 +222,128 @@ body::before{
   cursor: pointer;
 }
 
+.version-badge.version-20 {
+  border-color: #66c0f4;
+  background: linear-gradient(90deg, #171a21 0%, #66c0f4 100%);
+  color: #fff;
+}
+.version-badge.version-15 {
+  border-color: #e1306c;
+  background: linear-gradient(90deg, #adadad 0%, #e1306c 100%);
+  color: #fff;
+}
+.version-badge.version-10 {
+  border-color: #00ff88;
+  background: linear-gradient(90deg, #00ff88 0%, #171a21 100%);
+  color: #fff;
+}
+
+/* Verzió badge hover - v2.0 */
+.site-footer .version-badge.version-20:hover {
+  background: linear-gradient(90deg, #66c0f4 0%, #171a21 100%);
+  color: #fff;
+  border-color: #66c0f4;
+}
+
+/* Verzió badge hover - v1.5 */
+.site-footer .version-badge.version-15:hover {
+  background: linear-gradient(90deg, #e1306c 0%, #adadad 100%);
+  color: #fff;
+  border-color: #e1306c;
+}
+
+/* Verzió badge hover - v1.0 */
+.site-footer .version-badge.version-10:hover {
+  background: linear-gradient(90deg, #171a21 0%, #00ff88 100%);
+  color: #fff;
+  border-color: #00ff88;
+}
+
 /* Responsive tweaks */
 @media (max-width: 760px) {
   .glow-text { font-size: 2rem; }
-  .social-btn { width: 64px; height: 64px; font-size: 22px; }
+  .social-btn { width: 48px; height: 48px; font-size: 22px; }
   .projects { margin-top: 12px; }
+}
+
+/* Nagyon kis képernyő (mobil) */
+@media (max-width: 480px) {
+  .main { padding: 1rem 0.2rem; }
+  .glow-text { font-size: 1.3rem; }
+  .social-btn { width: 48px; height: 48px; font-size: 16px; }
+  .projects-title { font-size: 1.1rem; }
+  .project-card { padding: 10px; font-size: 0.85rem; }
+  .site-footer { font-size: 0.8rem; height: 48px; }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .main { padding: 1.5rem 0.5rem; }
+  .glow-text { font-size: 1.8rem; }
+  .social-btn { width: 56px; height: 56px; font-size: 18px; }
+  .projects-title { font-size: 1.3rem; }
+  .project-card { padding: 14px; font-size: 0.92rem; }
+}
+
+/* Laptop */
+@media (max-width: 1400px) {
+  .main { padding: 2rem 1rem; }
+  .glow-text { font-size: 2.2rem; }
+  .social-btn { width: 64px; height: 64px; font-size: 22px; }
+  .projects-title { font-size: 1.5rem; }
+  .project-card { padding: 18px; font-size: 1rem; }
+}
+
+/* Nagy monitor, TV */
+@media (min-width: 1800px) {
+  .main { padding: 4rem 2rem; }
+  .glow-text { font-size: 4rem; }
+  .social-btn { width: 120px; height: 120px; font-size: 48px; }
+  .projects-title { font-size: 2.5rem; }
+  .project-card { padding: 40px; font-size: 1.3rem; }
+  .site-footer { font-size: 1.3rem; height: 90px; }
 }
 
 /* Accessibility focus */
 .social-btn:focus { outline: 3px solid rgba(0,255,136,0.15); outline-offset: 3px; }
+
+.project-badge {
+  display: inline-block;
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  padding: 2px 12px;
+  font-size: 0.82em;
+  font-weight: 700;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  letter-spacing: 0.5px;
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+  animation: badgeIn 0.7s cubic-bezier(.2,.9,.25,1);
+}
+@keyframes badgeIn {
+  0% { opacity: 0; transform: scale(0.7) translateY(-12px);}
+  100% { opacity: 1; transform: scale(1) translateY(0);}
+}
+.project-card {
+  position: relative;
+}
+
+/* Badge színek */
+.badge-new {
+  background: linear-gradient(90deg, #00ff88 0%, #66c0f4 100%);
+  color: #1a2332;
+  border: 1.5px solid #00ff88;
+}
+.badge-updated {
+  background: linear-gradient(90deg, #e1306c 0%, #adadad 100%);
+  color: #fff;
+  border: 1.5px solid #e1306c;
+}
+.badge-soon {
+  background: linear-gradient(90deg, #171a21 0%, #7ecbff 100%);
+  color: #fff;
+  border: 1.5px solid #7ecbff;
+}
