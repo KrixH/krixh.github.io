@@ -2,82 +2,127 @@
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>theHUB | @krixh99</title>
-    <meta name="description" content="Welcome to THE HUB!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>theHUB | KrixH99</title>
+    <meta name="description" content="Welcome to theHUB – Welcome to my digital space 🚀.">
     <meta name="author" content="KrixH99">
-    <meta property="og:title" content="theHUB | @krixh99" />
-    <meta property="og:url" content="https://krixh.github.io/" />
-    <meta property="og:description" content="Welcome to THE HUB!">
-    <meta name="theme-color" content="#000000">
-    <meta name="msapplication-navbutton-color" content="#000000">
+    <meta property="og:title" content="theHUB | @krixh99">
+    <meta property="og:url" content="https://krixh.github.io/">
+    <meta property="og:description" content="Welcome to THE HUB – Welcome to my digital space 🚀.">
+    <meta name="theme-color" content="#0a0c10">
+    <meta name="msapplication-navbutton-color" content="#0a0c10">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="https://www.freeiconspng.com/thumbs/minecraft-server-icon/minecraft-server-icon-4.png"/>
+    
+    <!-- Google Fonts: Inter & Space Grotesk -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/x-icon" href="https://www.freeiconspng.com/thumbs/minecraft-server-icon/minecraft-server-icon-4.png">
 </head>
 <body>
-  <main class="main">
-    <!-- HEADER -->
-    <header class="header">
-      <h1 class="glow-text">theHUB</h1>
-      <p class="subtitle">Welcome to my digital space 🚀</p>
-    </header>
+    <div class="bg-glow"></div>
+    
+    <div class="container">
+        <header class="header">
+            <span class="badge-greeting">✦ Üdv itthon ✦</span>
+            <h1 class="glow-text">the<span class="accent">HUB</span></h1>
+            <p class="subtitle">Welcome to my digital space 🚀</p>
+        </header>
 
-    <!-- SOCIAL -->
-    <nav class="social-container" aria-label="social links">
-      <a href="https://github.com/KrixH" class="social-btn github" data-tooltip="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-      <a href="https://steamcommunity.com/id/KrixH99/" class="social-btn steam" data-tooltip="Steam" target="_blank" rel="noopener noreferrer"><i class="fab fa-steam"></i></a>
-      <a href="https://x.com/intent/follow?screen_name=_KrixH_" class="social-btn twitter" data-tooltip="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.instagram.com/kriszh99/" class="social-btn instagram" data-tooltip="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.youtube.com/@KrixH99?sub_confirmation=1" class="social-btn youtube" data-tooltip="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.twitch.tv/KriszH99" class="social-btn twitch" data-tooltip="Twitch" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitch"></i></a>
-      <a href="https://kick.com/krixh99" class="social-btn kick" data-tooltip="Kick.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-kickstarter-k"></i></a>
+        <nav class="social-grid" aria-label="Social media linkek">
+            <a href="https://github.com/KrixH" class="social-link" target="_blank" rel="noopener noreferrer" data-tooltip="GitHub">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+            <a href="https://steamcommunity.com/id/KrixH99/" class="social-link" target="_blank" rel="noopener noreferrer" data-tooltip="Steam">
+                <i class="fab fa-steam"></i>
+                <span>Steam</span>
+            </a>
+            <a href="https://x.com/intent/follow?screen_name=_KrixH_" class="social-link" target="_blank" rel="noopener noreferrer" data-tooltip="X (Twitter)">
+                <i class="fab fa-twitter"></i>
+                <span>X</span>
+            </a>
+            <a href="https://www.instagram.com/kriszh99/" class="social-link" target="_blank" rel="noopener noreferrer" data-tooltip="Instagram">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.youtube.com/@KrixH99?sub_confirmation=1" class="social-link" target="_blank" rel="noopener noreferrer" data-tooltip="YouTube">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube</span>
+            </a>
+            <a href="https://www.twitch.tv/KriszH99" class="social-link" target="_blank" rel="noopener noreferrer" data-tooltip="Twitch">
+                <i class="fab fa-twitch"></i>
+                <span>Twitch</span>
+            </a>
+            <a href="https://kick.com/krixh99" class="social-link" target="_blank" rel="noopener noreferrer" data-tooltip="Kick">
+                <i class="fab fa-kickstarter-k"></i>
+                <span>Kick</span>
+            </a>
+        </nav>
 
-      <button id="toggleProjects" class="social-btn project" aria-expanded="false" aria-controls="projects" data-tooltip="Projektek">
-        <i class="fas fa-code"></i>
-      </button>
-    </nav>
+        <!-- PROJEKTEK GOMB -->
+        <div class="projects-toggle-wrapper">
+            <button id="toggleProjects" class="btn-projects" aria-expanded="false" aria-controls="projects">
+                <i class="fas fa-code"></i>
+                <span>Projektek</span>
+                <i class="fas fa-chevron-down icon-arrow"></i>
+            </button>
+        </div>
 
-    <!-- PROJEKTEK (alapból rejtve) -->
-    <section id="projects" class="projects" aria-hidden="true">
-      <h2 class="projects-title">📂 Projektek</h2>
-      <div class="projects-grid">
-        <article class="project-card" data-index="0">
-          <span class="project-badge badge-updated">Frissült</span>
-          <i class="fa-solid fa-gamepad project-icon"></i>
-          <h3>GameHUB</h3>
-          <p>Interaktív játéklista modern dizájnnal.</p>
-          <a class="project-link" href="https://krixh.github.io/gamelist/" target="_blank" rel="noopener noreferrer">Megnyitás →</a>
-        </article>
+        <!-- PROJEKTEK SZEKCIÓ -->
+        <section id="projects" class="projects" aria-hidden="true">
+            <div class="projects-grid">
+                <article class="project-card" data-index="0">
+                    <div class="project-icon"><i class="fa-solid fa-gamepad"></i></div>
+                    <div class="project-content">
+                        <h3>GameHUB</h3>
+                        <p>Interaktív játéklista modern dizájnnal.</p>
+                        <div class="project-meta">
+                            <span class="badge badge-updated">Frissült</span>
+                            <a href="https://krixh.github.io/gamelist/" class="project-link" target="_blank" rel="noopener noreferrer">Megnézem →</a>
+                        </div>
+                    </div>
+                </article>
 
-        <article class="project-card" data-index="1">
-          <span class="project-badge badge-new">Új</span>
-          <i class="fa-solid fa-cubes project-icon"></i>
-          <h3>DatapackHUB</h3>
-          <p>Minecraft datapackok gyűjteménye.</p>
-          <a class="project-link" href="https://krixh.github.io/datapacks/" target="_blank" rel="noopener noreferrer">Megnyitás →</a>
-        </article>
+                <article class="project-card" data-index="1">
+                    <div class="project-icon"><i class="fa-solid fa-cubes"></i></div>
+                    <div class="project-content">
+                        <h3>DatapackHUB</h3>
+                        <p>Minecraft datapackok gyűjteménye.</p>
+                        <div class="project-meta">
+                            <span class="badge badge-new">Új</span>
+                            <a href="https://krixh.github.io/datapacks/" class="project-link" target="_blank" rel="noopener noreferrer">Megnézem →</a>
+                        </div>
+                    </div>
+                </article>
 
-        <article class="project-card" data-index="2">
-          <span class="project-badge badge-soon">Hamarosan</span>
-          <i class="fa-solid fa-terminal project-icon"></i>
-          <h3>Mini Tools</h3>
-          <p>Kisebb hasznos webes eszközök.</p>
-          <a class="project-link" href="#">Hamarosan...</a>
-        </article>
-      </div>
-    </section>
-  </main>
+                <article class="project-card" data-index="2">
+                    <div class="project-icon"><i class="fa-solid fa-terminal"></i></div>
+                    <div class="project-content">
+                        <h3>Mini Tools</h3>
+                        <p>Kisebb hasznos webes eszközök.</p>
+                        <div class="project-meta">
+                            <span class="badge badge-soon">Hamarosan</span>
+                            <a href="#" class="project-link disabled">Előkészületben</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <p>
-      &copy; <span id="year-range"></span> All rights reserved. theHUB | @krixh99
-      <span class="version-badge version-15">v1.5.1</span>    </p>
-  </footer>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <p>© <span id="year-range"></span> theHUB — KrixH99</p>
+        <span class="version-badge">v2.0.0</span>
+    </footer>
 
-  <script src="scripts/script.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>

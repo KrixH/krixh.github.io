@@ -1,136 +1,116 @@
-// AUTOMATIKUS ÉVSZÁM
-(function () {
-  const startYear = 2022;
-  const currentYear = new Date().getFullYear();
-  const el = document.getElementById("year-range");
-  if (el) {
-    el.textContent = startYear === currentYear ? startYear : `${startYear}-${currentYear}`;
-  }
+// Automatikus évszám frissítés
+(function updateYear() {
+    const startYear = 2022;
+    const currentYear = new Date().getFullYear();
+    const yearEl = document.getElementById("year-range");
+    if (yearEl) {
+        yearEl.textContent = startYear === currentYear ? startYear : `${startYear}-${currentYear}`;
+    }
 })();
 
-// TOGGLE + STAGGERED ANIMATIONS
-(function () {
-  const btn = document.getElementById("toggleProjects");
-  const section = document.getElementById("projects");
-  const cards = Array.from(document.querySelectorAll(".project-card"));
-  let animating = false;
+// Projektek toggle + belépő animáció
+(function setupProjects() {
+    const btn = document.getElementById("toggleProjects");
+    const section = document.getElementById("projects");
+    if (!btn || !section) return;
 
-  if (!btn || !section) return;
+    let isAnimating = false;
+    const cards = Array.from(document.querySelectorAll(".project-card"));
 
-  // aria-controls beállítása a gombra
-  if (btn && section) {
-    btn.setAttribute("aria-controls", "projects");
-  }
+    // Segédfüggvények
+    const setButtonState = (disabled) => {
+        btn.disabled = disabled;
+        if (disabled) {
+            btn.style.opacity = "0.7";
+        } else {
+            btn.style.opacity = "1";
+        }
+    };
 
-  function setBtnDisabled(disabled) {
-    btn.disabled = disabled;
-    btn.classList.toggle("loading", disabled);
-  }
-
-  // helper to show with stagger
-  function openProjects() {
-    if (animating) return;
-    animating = true;
-    setBtnDisabled(true);
-    section.style.display = "block";
-    // allow browser to paint before adding visible class
-    requestAnimationFrame(() => {
-      section.classList.add("visible");
-      section.setAttribute("aria-hidden", "false");
-      btn.setAttribute("aria-expanded", "true");
-      // stagger-in cards
-      cards.forEach((card, i) => {
+    const openProjects = () => {
+        if (isAnimating) return;
+        isAnimating = true;
+        setButtonState(true);
+        
+        section.style.display = "block";
+        // Kényszerített reflow a sima animációhoz
+        void section.offsetHeight;
+        section.classList.add("visible");
+        section.setAttribute("aria-hidden", "false");
+        btn.setAttribute("aria-expanded", "true");
+        
+        // Staggered megjelenés
+        cards.forEach((card, idx) => {
+            setTimeout(() => {
+                card.classList.add("show");
+                if (idx === cards.length - 1) {
+                    setTimeout(() => {
+                        isAnimating = false;
+                        setButtonState(false);
+                    }, 300);
+                }
+            }, idx * 120);
+        });
+        
+        // Gördülés a projektekhez
         setTimeout(() => {
-          card.classList.add("show");
-          // last one ends animating
-          if (i === cards.length - 1) {
-            // small extra delay to ensure transitions end
-            setTimeout(() => (animating = false), 220);
-          }
-        }, i * 160);
-      });
-      // fókusz az első kártyára, ha van
-      if (cards.length > 0) {
-        setTimeout(() => cards[0].focus && cards[0].focus(), cards.length * 160 + 100);
-      }
-      // if there are no cards, end animating
-      if (cards.length === 0) {
-        animating = false;
-        setBtnDisabled(false);
-      }
-      // animáció végén:
-      setTimeout(() => {
-        animating = false;
-        setBtnDisabled(false);
-      }, cards.length * 160 + 220);
-    });
-    setTimeout(() => {
-      section.scrollIntoView({ behavior: "smooth", block: "center" });
-    }, 300);
-  }
+            section.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 200);
+    };
 
-  // helper to hide with reverse stagger
-  function closeProjects() {
-    if (animating) return;
-    animating = true;
-    setBtnDisabled(true);
-    // reverse hide cards
-    const total = cards.length;
-    cards.slice().reverse().forEach((card, idx) => {
-      setTimeout(() => {
-        card.classList.remove("show");
-        // when last card removed, hide container
-        if (idx === total - 1) {
-          // wait for card transition to finish
-          setTimeout(() => {
+    const closeProjects = () => {
+        if (isAnimating) return;
+        isAnimating = true;
+        setButtonState(true);
+        
+        // Fordított sorrendben eltüntetés
+        const reversedCards = [...cards].reverse();
+        reversedCards.forEach((card, idx) => {
+            setTimeout(() => {
+                card.classList.remove("show");
+                if (idx === reversedCards.length - 1) {
+                    setTimeout(() => {
+                        section.classList.remove("visible");
+                        section.setAttribute("aria-hidden", "true");
+                        btn.setAttribute("aria-expanded", "false");
+                        setTimeout(() => {
+                            section.style.display = "none";
+                            isAnimating = false;
+                            setButtonState(false);
+                        }, 300);
+                    }, 150);
+                }
+            }, idx * 80);
+        });
+        
+        if (cards.length === 0) {
             section.classList.remove("visible");
             section.setAttribute("aria-hidden", "true");
             btn.setAttribute("aria-expanded", "false");
-            // after container transition, set display none
             setTimeout(() => {
-              section.style.display = "none";
-              animating = false;
-            }, 320);
-          }, 180);
+                section.style.display = "none";
+                isAnimating = false;
+                setButtonState(false);
+            }, 350);
         }
-      }, idx * 140);
+    };
+
+    // Toggle esemény
+    btn.addEventListener("click", () => {
+        if (section.classList.contains("visible")) {
+            closeProjects();
+        } else {
+            openProjects();
+        }
     });
 
-    // fallback when no cards
-    if (cards.length === 0) {
-      section.classList.remove("visible");
-      section.setAttribute("aria-hidden", "true");
-      btn.setAttribute("aria-expanded", "false");
-      setTimeout(() => {
-        section.style.display = "none";
-        animating = false;
-      }, 360);
-    }
-    // animáció végén:
-    setTimeout(() => {
-      animating = false;
-      setBtnDisabled(false);
-    }, total * 140 + 500);
-  }
-
-  // Toggle on click (button)
-  btn.addEventListener("click", () => {
-    // Frissítsd a cards tömböt, ha a projektek dinamikusan változnak
-    cards.length = 0;
-    cards.push(...document.querySelectorAll(".project-card"));
-    if (section.classList.contains("visible")) {
-      closeProjects();
-    } else {
-      openProjects();
-    }
-  });
-
-  // Optional: close on Escape
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && section.classList.contains("visible")) {
-      closeProjects();
-    }
-  });
-
-  cards.forEach(card => card.setAttribute("tabindex", "0"));
+    // ESC zárás
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && section.classList.contains("visible")) {
+            closeProjects();
+        }
+    });
+    
+    // Tabindex a jobb navigációért
+    cards.forEach(card => card.setAttribute("tabindex", "0"));
 })();
